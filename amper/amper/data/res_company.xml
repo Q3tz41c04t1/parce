@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<odoo noupdate="1">
+
+        <record id="base.main_partner" model="res.partner">
+            <field name="company_type">company</field>
+            <field name="street">Paseo de los Tamarindos 90 Arcos Torre II Piso 8</field>
+            <field name="street2">Bosques de las Lomas</field>
+            <field name="city">Delegación Cuajimalpa</field>
+            <field name="state_id" eval="ref('base.state_mx_df')"/>
+            <field name="country_id" eval="ref('base.mx')"/>
+            <field name="zip">05120</field>
+            <field name="vat">SME040527947</field>
+            <field name="property_account_position_id" eval="ref('l10n_mx.account_fiscal_position_601_fr')"/>
+        </record>
+
+        <record id="data_res_partner_invoice_address_amper" model="res.partner">
+            <field name="type">invoice</field>
+            <field name="parent_id" eval="ref('base.main_partner')"/>
+            <field name="street">Paseo de los Tamarindos 90 Arcos Torre II Piso 8</field>
+            <field name="street2">Bosques de las Lomas</field>
+            <field name="city">Delegación Cuajimalpa</field>
+            <field name="state_id" eval="ref('base.state_mx_df')"/>
+            <field name="country_id" eval="ref('base.mx')"/>
+            <field name="zip">05120</field>
+            <field name="phone"></field>
+            <field name="email"></field>
+        </record>
+
+        <record id="base.main_company" model="res.company">
+            <field name="name">Servidesca Mexico S de RL de CV</field>
+            <field name="logo" type="base64" file="amper/static/img/logo.png"/>
+            <field name="street">Paseo de los Tamarindos 90 Arcos Torre II Piso 8</field>
+            <field name="street2">Bosques de las Lomas</field>
+            <field name="state_id" eval="ref('base.state_mx_df')"/>
+            <field name="country_id" eval="ref('base.mx')"/>
+            <field name="zip">05120</field>
+            <field name="city">Delegación Cuajimalpa</field>
+            <field name="phone"></field>
+            <field name="vat">SME040527947</field>
+            <field name="currency_id" ref="base.MXN"/>
+        </record>
+</odoo>

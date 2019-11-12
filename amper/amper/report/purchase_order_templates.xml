@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_purchaseorder_document" inherit_id="purchase.report_purchaseorder_document">
+        <xpath expr="//t[@t-if='o.dest_address_id']" position="after">
+            <t t-elif="o.picking_type_id">
+                <t t-set="information_block">
+                    <strong>Shipping address:</strong>
+                    <div t-if="o.picking_type_id and o.picking_type_id.warehouse_id">
+                        <t t-set="warehouse" t-value="o.picking_type_id.warehouse_id"/>
+                        <t t-esc="warehouse.name"/><br/>
+                        <div><span t-if="warehouse.partner_id.street"><t t-esc="warehouse.partner_id.street"/></span>&amp;nbsp;<span t-if="warehouse.partner_id.street_number"><t tesc="warehouse.partner_id.street_number"/></span></div>
+                        <div t-if="warehouse.partner_id.l10n_mx_edi_colony"><t t-esc="warehouse.partner_id.l10n_mx_edi_colony"/></div>
+                        <div t-if="warehouse.partner_id.city"><t t-esc="o.picking_type_id.warehouse_id.partner_id.city"/></div>
+                        <div><span t-if="warehouse.partner_id.state_id"><t t-esc="warehouse.partner_id.state_id.name"/></span>&amp;nbsp;<span t-if="warehouse.partner_id.zip"><t t-esc="warehouse.partner_id.zip"/></span></div>
+                        <div t-if="warehouse.partner_id.country_id"><t t-esc="warehouse.partner_id.country_id.name"/></div>
+                        <div t-if="warehouse.partner_id.phone"><i class='fa fa-phone fa-fw'></i><t t-esc="o.picking_type_id.warehouse_id.partner_id.phone"/></div>
+                    </div>
+                </t>
+            </t>
+        </xpath>
+
+        <xpath expr="//table/thead/tr/th[1]" position="replace">
+            <th><strong>Description</strong></th>
+        </xpath>
+        <xpath expr="//table/tbody/tr/td[1]" position="replace">
+            <td><span t-field="line.name"/></td>
+        </xpath>
+        <xpath expr="//table/thead/tr/th[3]" position="replace"/>
+        <xpath expr="//table/tbody/tr/td[3]" position="replace"/>
+        <xpath expr="//table/thead/tr/th[2]" position="replace"/>
+        <xpath expr="//table/tbody/tr/td[2]" position="replace"/>
+
+        <xpath expr="//table/thead/tr/th[1]" position="before">
+            <th><strong>Num.</strong></th>
+            <th><strong>Reference</strong></th>
+        </xpath>
+        <xpath expr="//tr[@t-foreach='o.order_line']" position="before">
+            <t t-set="num" t-value="1"/>
+        </xpath>
+        <xpath expr="//tr[@t-foreach='o.order_line']" position="inside">
+            <t t-set="num" t-value="num + 1"/>
+        </xpath>
+        <xpath expr="//table/tbody/tr/td" position="before">
+            <td t-esc="num"/>
+            <td><span t-field="line.product_id.default_code"/></td>
+        </xpath>
+    </template>
+</odoo>

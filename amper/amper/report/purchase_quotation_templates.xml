@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_purchasequotation_document" inherit_id="purchase.report_purchasequotation_document">
+        <xpath expr="//t[@t-if='o.dest_address_id']" position="after">
+            <t t-elif="o.picking_type_id">
+                <t t-set="information_block">
+                   <strong>Shipping address:</strong>
+                    <div t-if="o.picking_type_id and o.picking_type_id.warehouse_id">
+                        <t t-set="warehouse" t-value="o.picking_type_id.warehouse_id"/>
+                        <t t-esc="warehouse.name"/><br/>
+                        <div><span t-if="warehouse.partner_id.street"><t t-esc="warehouse.partner_id.street"/></span>&amp;nbsp;<span t-if="warehouse.partner_id.street_number"><t tesc="warehouse.partner_id.street_number"/></span></div>
+                        <div t-if="warehouse.partner_id.l10n_mx_edi_colony"><t t-esc="warehouse.partner_id.l10n_mx_edi_colony"/></div>
+                        <div t-if="warehouse.partner_id.city"><t t-esc="o.picking_type_id.warehouse_id.partner_id.city"/></div>
+                        <div><span t-if="warehouse.partner_id.state_id"><t t-esc="warehouse.partner_id.state_id.name"/></span>&amp;nbsp;<span t-if="warehouse.partner_id.zip"><t t-esc="warehouse.partner_id.zip"/></span></div>
+                        <div t-if="warehouse.partner_id.country_id"><t t-esc="warehouse.partner_id.country_id.name"/></div>
+                        <div t-if="warehouse.partner_id.phone"><i class='fa fa-phone fa-fw'></i><t t-esc="o.picking_type_id.warehouse_id.partner_id.phone"/></div>
+                    </div>
+                </t>
+            </t>
+        </xpath>
+    </template>
+</odoo>

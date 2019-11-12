@@ -1,0 +1,171 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* amper
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-11 22:52+0000\n"
+"PO-Revision-Date: 2019-01-11 22:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: amper
+#: model_terms:ir.ui.view,arch_db:amper.report_purchaseorder_document
+msgid "<strong>Num.</strong>"
+msgstr "<strong>Num.</strong>"
+
+#. module: amper
+#: model_terms:ir.ui.view,arch_db:amper.report_purchaseorder_document
+msgid "<strong>Product</strong>"
+msgstr "<strong>Producto</strong>"
+
+#. module: amper
+#: model_terms:ir.ui.view,arch_db:amper.report_purchaseorder_document
+msgid "<strong>Reference</strong>"
+msgstr "<strong>Referencia</strong>"
+
+#. module: amper
+#: model_terms:ir.ui.view,arch_db:amper.report_purchaseorder_document
+msgid "<strong>Shipping address:</strong>"
+msgstr "<strong>Dirección de envío:</strong>"
+
+#. module: amper
+#: model:ir.model.fields,help:amper.field_account_move_line__product_category_id
+msgid "Category of the selected product"
+msgstr "Categoría del producto seleccionado"
+
+#. module: amper
+#: model:ir.model.fields,field_description:amper.field_change_purchase_line__create_uid
+#: model:ir.model.fields,field_description:amper.field_lang_config_settings__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: amper
+#: model:ir.model.fields,field_description:amper.field_change_purchase_line__create_date
+#: model:ir.model.fields,field_description:amper.field_lang_config_settings__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: amper
+#: model:ir.model.fields,field_description:amper.field_change_purchase_line__display_name
+#: model:ir.model.fields,field_description:amper.field_lang_config_settings__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: amper
+#: model:ir.actions.server,name:amper.action_increase_price_18_45
+msgid "EMBS: Increase Price 18_45"
+msgstr "EMBS: Increase Price 18_45"
+
+#. module: amper
+#: model:ir.model.fields,field_description:amper.field_change_purchase_line__id
+#: model:ir.model.fields,field_description:amper.field_lang_config_settings__id
+msgid "ID"
+msgstr "ID"
+
+#. module: amper
+#: model:ir.model,name:amper.model_account_move_line
+msgid "Journal Item"
+msgstr "Asiento Contable"
+
+#. module: amper
+#: model:ir.model.fields,field_description:amper.field_lang_config_settings____last_update
+#: model:ir.model.fields,field_description:amper.field_change_purchase_line____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: amper
+#: model:ir.model.fields,field_description:amper.field_lang_config_settings__write_uid
+#: model:ir.model.fields,field_description:amper.field_change_purchase_line__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: amper
+#: model:ir.model.fields,field_description:amper.field_lang_config_settings__write_date
+#: model:ir.model.fields,field_description:amper.field_change_purchase_line__write_date
+msgid "Last Updated on"
+msgstr "Última modificación el"
+
+#. module: amper
+#: model_terms:ir.ui.view,arch_db:amper.report_saleorder_document
+msgid "Num."
+msgstr "Num."
+
+#. module: amper
+#: model_terms:ir.ui.view,arch_db:amper.report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:amper.view_move_line_form
+msgid "Product"
+msgstr "Producto"
+
+#. module: amper
+#: model:ir.model.fields,field_description:amper.field_account_move_line__product_category_id
+msgid "Product Category"
+msgstr "Categoría de Producto"
+
+#. module: amper
+#: model_terms:ir.ui.view,arch_db:amper.report_saleorder_document
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: amper
+#: model:ir.model,name:amper.model_lang_config_settings
+msgid "lang.config.settings"
+msgstr "lang.config.settings"
+
+#. module: amper
+#: model_terms:ir.ui.view,arch_db:amper.view_change_lines
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: amper
+#: model_terms:ir.ui.view,arch_db:amper.view_change_lines
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: amper
+#: model:ir.actions.act_window,name:amper.action_change_purchase_lines
+msgid "Change Lines"
+msgstr "Cambiar Líneas"
+
+#. module: amper
+#: model_terms:ir.ui.view,arch_db:amper.view_change_lines
+msgid "Create Order"
+msgstr "Crear Orden"
+
+#. module: amper
+#: model:ir.model.fields,help:amper.field_change_purchase_line__used_purchase_id
+msgid "Current purchase order"
+msgstr "Orden de compra actual"
+
+#. module: amper
+#: model:ir.model.fields,field_description:amper.field_change_purchase_line__line_ids
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: amper
+#: model:ir.model.fields,field_description:amper.field_change_purchase_line__new_purchase
+msgid "New Order"
+msgstr "Nueva Orden"
+
+#. module: amper
+#: model_terms:ir.ui.view,arch_db:amper.view_change_lines
+msgid "The following lines will be moved to another purchase"
+msgstr "La siguientes líneas serán movidas a otra compra."
+
+#. module: amper
+#: model:ir.model.fields,help:amper.field_change_purchase_line__new_purchase
+msgid "Used to create a new purchase order instead of use an existing"
+msgstr "Usado para crear una nueva compra en lugar de usar una existente."
+
+#. module: amper
+#: model:ir.model.fields,field_description:amper.field_change_purchase_line__purchase_id
+#: model:ir.model.fields,field_description:amper.field_change_purchase_line__used_purchase_id
+#: model_terms:ir.ui.view,arch_db:amper.view_change_lines
+msgid "Purchase"
+msgstr "Compra"

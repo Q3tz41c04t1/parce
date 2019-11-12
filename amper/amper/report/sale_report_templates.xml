@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//table/thead/tr/th[1]" position="replace">
+            <th class="text-left">Description</th>
+        </xpath>
+        <xpath expr="//t[@t-foreach='doc.order_line']/tr/t/td[1]" position="replace">
+            <td><span t-field="line.name"/></td>
+        </xpath>
+        <xpath expr="//table/thead/tr/th[5]" position="replace"/>
+        <xpath expr="//t[@t-foreach='doc.order_line']/tr/t/td[5]" position="replace"/>
+
+        <xpath expr="//table/thead/tr/th[1]" position="before">
+            <t t-set="colspan" t-value="colspan + 1"/>
+            <th class="text-left">Num.</th>
+            <th class="text-left">Reference</th>
+        </xpath>
+        <xpath expr="//t[@t-foreach='doc.order_line']" position="before">
+            <t t-set="num" t-value="1"/>
+        </xpath>
+        <xpath expr="//t[@t-foreach='doc.order_line']/tr/t" position="inside">
+            <t t-set="num" t-value="num + 1"/>
+        </xpath>
+        <xpath expr="//t[@t-foreach='doc.order_line']/tr/t/td" position="before">
+            <td t-esc="num"/>
+            <td><span t-field="line.product_id.default_code"/></td>
+        </xpath>
+    </template>
+</odoo>

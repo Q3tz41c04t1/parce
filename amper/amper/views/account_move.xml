@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_line_form" model="ir.ui.view">
+        <field name="name">account.move.line.form.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page/group" position="inside">
+                <group string="Product" attrs="{'invisible': [('product_id', '=', False)]}">
+                    <field name="product_id"/>
+                    <field name="product_category_id"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

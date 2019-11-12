@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="gen_sale_wizard_view" model="ir.ui.view">
+        <field name="name">wizard for import sale order from csv file </field>
+        <field name="model">import.order</field>
+        <field name="arch" type="xml">
+            <form string="Import Sale Order">
+                <group>
+                    <group>
+                        <field name="file" filename="name"
+                               nolabel="1"/><newline/>
+                        <div class="alert alert-warning text-center" role="alert">
+                            <p><b>Tip: </b>You can<a
+                                    href="/quotation_from_sheet/static/examples/template.xls"
+                                         target="NEW">
+                                Download example file.</a> in order to have the proper
+                                format.
+                            </p>
+                        </div>
+                    </group>
+                    <group string="Options">
+                        <field name="order_id" invisible="1"/>
+                        <field name="order"/>
+                        <field name="user_id"/>
+                        <field name="partner_id"/>
+                        <field name="date"/>
+                        <field name="pricelist_id"/>
+                        <field name="template_id"/>
+                        <field name="opportunity_id"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="do_import" string="Import" class="btn-primary" type="object"/>
+                    <button name="cancel" string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_import_sale_from_sheet" model="ir.actions.act_window">
+        <field name="name">Quotation from Sheet</field>
+        <field name="res_model">import.order</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="crm_lead_button_wizard_form_view" model="ir.ui.view">
+        <field name="name">crm.lead.button.wizard.form.view</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stage_id']" position="before">
+                <button
+                    name="quotation_from_sheet.action_quotation_from_sheet_defaults"
+                    string="Quotation From Sheet"
+                    type="action"
+                    domain="[('stage_id.name', '=', 'qualified')]"
+                    attrs="{'invisible': ['|', ('active','=',False), ('stage_id', 'not in', [%(crm.stage_lead2)d, %(crm.stage_lead3)d])]}"
+                    groups="sales_team.group_sale_salesman,sales_team.group_sale_manager"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!--
+    Action to set default values on the wizard
+    -->
+    <record id="action_quotation_from_sheet_defaults" model="ir.actions.server">
+        <field name="name">Set default values for the quotation from sheet</field>
+        <field name="model_id" ref="crm.model_crm_lead"/>
+        <field name="state">code</field>
+        <field name="code">
+context = {
+    'default_id': record.id,
+    'default_partner_id': record.partner_id.id,
+    'default_user_id': record.user_id.id,
+}
+action = env.ref('quotation_from_sheet.action_import_sale_from_sheet').read()[0]
+action['context'] = context
+        </field>
+    </record>
+
+</odoo>
+

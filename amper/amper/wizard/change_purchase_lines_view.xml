@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_change_lines" model="ir.ui.view">
+        <field name="name">Change Lines</field>
+        <field name="model">change.purchase.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="used_purchase_id" invisible="1"/>
+                <label for="new_purchase" string="Create Order"/>
+                <field name="new_purchase"/>
+                <label for="purchase_id" string="Purchase" />
+                <field
+                    name="purchase_id"
+                    options="{'no_create': True}"
+                    attrs="{'invisible': [('new_purchase', '=', True)], 'required': [('new_purchase', '=', False)]}"
+                    domain="[('state', '=', 'draft'), ('id', '!=', used_purchase_id)]"/>
+                <p>The following lines will be moved to another purchase</p>
+                <field name="line_ids" nolabel="1" domain="[('order_id', '=', used_purchase_id)]">
+                    <tree>
+                        <field name="product_id"/>
+                        <field name="name"/>
+                        <field name="product_qty"/>
+                        <field name="price_unit"/>
+                    </tree>
+                </field>
+                <footer>
+                    <button string='Apply' name="apply" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window
+        id="action_change_purchase_lines"
+        name="Change Lines"
+        res_model="change.purchase.line"
+        src_model="purchase.order"
+        view_mode="form"
+        target="new"
+        key2="client_action_multi"/>
+
+</odoo>

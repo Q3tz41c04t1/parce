@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="base.paperformat_euro" model="report.paperformat">
+        <field name="margin_top">45</field>
+        <field name="header_spacing">40</field>
+        <field name="dpi">100</field>
+    </record>
+    <record id="base.paperformat_us" model="report.paperformat">
+        <field name="margin_top">45</field>
+        <field name="header_spacing">40</field>
+        <field name="dpi">100</field>
+    </record>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="action_increase_price_18_45" model="ir.actions.server">
+        <field name="name">EMBS: Increase Price 18_45</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">
+categ_equipment = env.ref('product.product_category_3')
+categ_services = env.ref('product.product_category_9')
+order_line = env['sale.order.line']
+
+lines_equipment = order_line.search([('order_id', '=', record.id), ('product_id.categ_id', 'child_of', categ_equipment.id)])
+lines_services = order_line.search([('order_id', '=', record.id), ('product_id.categ_id', 'child_of', categ_services.id)])
+
+for line in lines_equipment:
+  line.write({
+    'price_unit': line.price_unit + (line.price_unit * 0.18)
+    })
+
+for line in lines_services:
+  line.write({
+    'price_unit': line.price_unit + (line.price_unit * 0.45)
+    })
+        </field>
+    </record>
+</odoo>

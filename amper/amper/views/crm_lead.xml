@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_lead_form_opportunity_inherit" model="ir.ui.view">
+        <field name="name">crm_lead_form_opportunity_inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='name']" position="before">
+                <h1><field name="number"/></h1>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="crm_lead_kanban_lead_inherit" model="ir.ui.view">
+        <field name="name">crm_lead_kanban_lead_inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <span t-if="record.number.raw_value">[<field name="number"/>]&amp;nbsp;</span>
+            </xpath>
+        </field>
+    </record>
+</odoo>

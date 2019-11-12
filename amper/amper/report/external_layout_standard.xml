@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_external_layout_standard" inherit_id="web.external_layout_standard">
+        <xpath expr="//li[@t-if='company.vat']" position="replace"></xpath>
+        <xpath expr="//div[@t-field='company.partner_id']" position="replace"></xpath>
+        <xpath expr="//div[@name='company_address']" position="inside">
+           <div><span t-field="company.name"/></div>
+           <div t-if="company.vat"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></div>
+           <div t-field="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: true}"/>
+        </xpath>
+    </template>
+</odoo>
+
